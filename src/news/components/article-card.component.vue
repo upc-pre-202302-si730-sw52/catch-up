@@ -31,7 +31,7 @@
 <script>
 export default {
   name: "article-card",
-  components: {PvAvatar},
+
 
   props: {
     article: null,
