@@ -15,6 +15,7 @@
     <main-content v-if="errors" :articles="articles"></main-content>
     <unavailable-content v-else :errors="errors"></unavailable-content>
   </div>
+  <footer-content></footer-content>
 </template>
 
 <script>
@@ -22,10 +23,11 @@ import {NewsApiService} from "./news/services/news-api.service.js";
 import SideMenu from "./news/components/side-menu.component.vue";
 import MainContent from "./news/components/main-content.component.vue";
 import UnavailableContent from "./news/components/unavailable-content.component.vue";
+import FooterContent from "./news/components/footer-content.component.vue";
 
 export default {
   name: 'App',
-  components: {UnavailableContent, MainContent, SideMenu},
+  components: {FooterContent, UnavailableContent, MainContent, SideMenu},
   data() {
     return {
       sidebarVisible: false,
