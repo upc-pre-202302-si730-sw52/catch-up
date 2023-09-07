@@ -11,17 +11,21 @@
       </pv-menubar>
     </div>
   </div>
-  <main-content :articles="articles"></main-content>
+  <div>
+    <main-content v-if="errors" :articles="articles"></main-content>
+    <unavailable-content v-else :errors="errors"></unavailable-content>
+  </div>
 </template>
 
 <script>
 import {NewsApiService} from "./news/services/news-api.service.js";
 import SideMenu from "./news/components/side-menu.component.vue";
 import MainContent from "./news/components/main-content.component.vue";
+import UnavailableContent from "./news/components/unavailable-content.component.vue";
 
 export default {
   name: 'App',
-  components: {MainContent, SideMenu},
+  components: {UnavailableContent, MainContent, SideMenu},
   data() {
     return {
       sidebarVisible: false,
@@ -37,13 +41,13 @@ export default {
     // Fetch articles for selected Source
     getArticlesForSource(sourceId) {
       this.newsApi.getArticlesForSource(sourceId)
-        .then(response => {
-          this.articles = response.data.articles;
-          console.log(response.data.articles);
-        })
-        .catch(e => {
-          this.errors.push(e);
-        });
+          .then(response => {
+            this.articles = response.data.articles;
+            console.log(response.data.articles);
+          })
+          .catch(e => {
+            this.errors.push(e);
+          });
     },
     // Fetch articles for selected Source with Logo URL
     getArticlesForSourceWithLogo(source) {
@@ -58,15 +62,15 @@ export default {
           })
           .catch(e => this.errors.push(e));
 
-  },
+    },
     // Toggle Sidebar
     toggleSidebar() {
       this.sidebarVisible = !this.sidebarVisible;
     },
     // On Source Selected
     setSource(source) {
-    this.getArticlesForSourceWithLogo(source);
-    this.toggleSidebar();
+      this.getArticlesForSourceWithLogo(source);
+      this.toggleSidebar();
     }
   }
 }
