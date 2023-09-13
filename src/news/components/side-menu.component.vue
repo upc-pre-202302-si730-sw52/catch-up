@@ -1,11 +1,11 @@
 <template>
   <pv-sidebar v-bind:visible="visible">
     <div v-for="source in sources" class="m-4">
-      <div @click="onSourceSelected(source)"
-           class="flex align-content-start flex-wrap">
+      <div class="flex align-content-start flex-wrap"
+           @click="onSourceSelected(source)">
         <span class="flex align-items-center justify-content-center mr-2">
-          <pv-avatar :image="source.urlToLogo"
-                     :aria-label="source.name"
+          <pv-avatar :aria-label="source.name"
+                     :image="source.urlToLogo"
                      shape="circle"/>
         </span>
         <span class="flex align-items-center justify-content-center">

@@ -3,7 +3,7 @@
     <div>
       <pv-menubar class="sticky bg-primary">
         <template #start>
-          <pv-button label="CatchUp" icon="pi pi-bars"
+          <pv-button icon="pi pi-bars" label="CatchUp"
                      @click="toggleSidebar"></pv-button>
           <side-menu v-model:visible="sidebarVisible"
                      v-on:source-selected="setSource"></side-menu>

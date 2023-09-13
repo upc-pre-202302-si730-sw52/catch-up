@@ -1,8 +1,8 @@
 <template>
   <pv-card class="m-2">
     <template #header>
-      <img :src="article.urlToImage"
-           :alt="article.title">
+      <img :alt="article.title"
+           :src="article.urlToImage">
     </template>
     <template #title>
       <p>{{ article.title }}</p>
@@ -10,8 +10,8 @@
     <template #content>
       <p class="flex align-content-start flex-wrap">
         <span class="flex align-items-center justify-content-center mr-2">
-          <pv-avatar :image="article.source.urlToLogo"
-                     :aria-label="article.source.name"
+          <pv-avatar :aria-label="article.source.name"
+                     :image="article.source.urlToLogo"
                      shape="circle"/>
         </span>
         <span class="flex align-items-center justify-content-center">
@@ -23,7 +23,7 @@
       </p>
     </template>
     <template #footer>
-      <a :href="article.url" target="_blank">{{ $t('read-more')}}</a>
+      <a :href="article.url" target="_blank">{{ $t('read-more') }}</a>
     </template>
   </pv-card>
 </template>

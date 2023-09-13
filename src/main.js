@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
 import PrimeVue from 'primevue/config';
@@ -26,7 +26,7 @@ import i18n from "./i18n.js";
 
 // Application instance setup
 createApp(App)
-    .use(PrimeVue, { ripple: true })
+    .use(PrimeVue, {ripple: true})
     .use(i18n)
     .component('pv-card', Card)
     .component('pv-button', Button)
